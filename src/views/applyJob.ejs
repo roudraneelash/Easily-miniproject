@@ -1,0 +1,74 @@
+<div class="container-md mt-3">
+  <div class="container-md mt-3">
+    <form
+      action="<%= formData&&applicantId ? `/jobs/${id}/applicants/${applicantId}/edit` : `/jobs/apply/${id}` %>"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <% if(errorMessage) { %>
+      <div class="mb-3 alert alert-danger" role="alert">
+        <%= errorMessage %>
+      </div>
+      <% } %>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Your Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          aria-describedby="FullName"
+          value="<%= formData ? formData.name : '' %>"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="phone"
+          name="phone"
+          aria-describedby="PhoneNumber"
+          value="<%= formData ? formData.phone : '' %>"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          aria-describedby="EmailAddress"
+          value="<%= formData ? formData.email : '' %>"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="resume" class="form-label">Resume (PDF or Word)</label>
+        <input
+          type="file"
+          class="form-control"
+          id="resume"
+          name="resume"
+          aria-describedby="Resume"
+          accept=".pdf, .doc, .docx"
+        />
+        <% if (formData && formData.resumePath) { %>
+        <div class="mt-2">
+          <label for="currentResume">Current Resume:</label>
+          <a <% console.log(formData.resumePath) %>
+            href="/jobs/<%= id %>/applicants/<%= applicantId %>/view"
+            target="_blank" > View Resume
+          </a>
+        </div>
+        <% } %>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+    </form>
+  </div>
+</div>

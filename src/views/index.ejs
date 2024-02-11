@@ -1,0 +1,15 @@
+<div class="container-sm d-flex" style="height: 80vh">
+  <div class="container align-self-center">
+    <h1>A comprehensive platform for reliable</h1>
+    <p>Get Discovered. Get Hired.</p>
+    <% if(!locals.user) { %>
+    <a class="btn btn-outline-primary m-1" href="/jobs">I'm A job seeker</a>
+    <a class="btn btn-outline-primary m-1" href="/login">I'm A Recruiter</a>
+    <% } else { %>
+    <a class="btn btn-outline-primary m-1" href="/jobs">Explore</a>
+    <% } %>
+  </div>
+  <div class="container align-self-center">
+    <img src="img/4565.jpg" style="max-height: 100%; max-width: 100%" alt="" />
+  </div>
+</div>

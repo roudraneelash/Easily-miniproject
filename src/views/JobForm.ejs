@@ -1,0 +1,122 @@
+<div class="container-md mt-3 mb-4">
+  <div class="container-md mt-3">
+    <form
+      action="<%= id ? '/jobs/update/' + id : '/createjobs' %>"
+      method="POST"
+    >
+      <% if(errorMessage) { %>
+      <div class="mb-3 alert alert-danger" role="alert">
+        <%= errorMessage %>
+      </div>
+      <% } %>
+      <!-- Additional fields for job data -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="jobTitle" class="form-label">Job Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="jobTitle"
+            name="jobTitle"
+            aria-describedby="JobTitle"
+            value="<%= formData ? formData.jobTitle : '' %>"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="company" class="form-label">Company</label>
+          <input
+            type="text"
+            class="form-control"
+            id="company"
+            name="company"
+            aria-describedby="Company"
+            value="<%= formData ? formData.company : '' %>"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="position" class="form-label">Position</label>
+          <input
+            type="text"
+            class="form-control"
+            id="position"
+            name="position"
+            aria-describedby="Position"
+            value="<%= formData ? formData.position : '' %>"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="location"
+            aria-describedby="Location"
+            value="<%= formData ? formData.location : '' %>"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="salary" class="form-label">Salary</label>
+          <input
+            type="text"
+            class="form-control"
+            id="salary"
+            name="salary"
+            aria-describedby="Salary"
+            value="<%= formData ? formData.salary : '' %>"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="noOfOpenings" class="form-label"
+            >Number of Openings</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="noOfOpenings"
+            name="noOfOpenings"
+            aria-describedby="NoOfOpenings"
+            value="<%= formData ? formData.noOfOpenings : '' %>"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="endDate" class="form-label">End Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="endDate"
+            name="endDate"
+            aria-describedby="EndDate"
+            value="<%= formData ? formData.endDate : '' %>"
+          />
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label for="skills" class="form-label"
+            >Skills (Separate with commas)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="skills"
+            name="skills"
+            aria-describedby="Skills"
+            placeholder="Java, Spring Boot, Hibernate, MySQL, RESTful API"
+            value="<%= formData ? formData.skills : '' %>"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- End of additional fields -->
+
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= jobData.jobTitle %></h1>
+      <p><strong>Company:</strong> <%= jobData.company %></p>
+      <p><strong>Position:</strong> <%= jobData.position %></p>
+      <p><strong>Location:</strong> <%= jobData.location %></p>
+      <p><strong>Salary:</strong> <%= jobData.salary %></p>
+      <p><strong>Skills:</strong></p>
+      <div class="mb-3">
+        <% jobData.skills.forEach(function(skill) { %>
+        <span class="mr-2"><%= skill %> ,</span>
+        <% }); %>
+      </div>
+      <p><strong>Job Description:</strong> <%= jobData.jobDescription %></p>
+      <p><strong>No. of Openings:</strong> <%= jobData.noOfOpenings %></p>
+      <p><strong>End Date:</strong> <%= jobData.endDate %></p>
+      <% if(locals.user) { %>
+      <a href="/jobs/<%= id %>/applicants" class="btn btn-primary"
+        >View Applicants</a
+      >
+      <a href="/jobs/update/<%= id %>" class="btn btn-primary">Edit</a>
+      <a href="/jobs/delete/<%= id %>" class="btn btn-primary">Delete</a>
+      <% } else {%>
+      <a href="/jobs/apply/<%= id %>" class="btn btn-primary">Apply Now</a>
+      <% } %>
+    </div>
+    <div class="col-md-6">
+      <img
+        src="\img\job-details.jpg"
+        alt=""
+        style="max-height: 100%; max-width: 100%"
+      />
+    </div>
+  </div>
+</div>
